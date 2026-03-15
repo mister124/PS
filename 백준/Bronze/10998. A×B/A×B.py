@@ -1,4 +1,4 @@
-a, b = input().split()
-a= int(a)
-b= int(b)
-print(a*b)
+import sys
+
+a, b = map(int, sys.stdin.readline().split())
+print(a * b)
