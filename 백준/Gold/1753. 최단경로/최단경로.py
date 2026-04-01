@@ -4,25 +4,19 @@ import heapq
 input = sys.stdin.readline
 V, E = map(int, input().split())
 K = int(input())
-
 graph = [[] for _ in range(V + 1)]
-
 for _ in range(E):
     u, v, w = map(int, input().split())
     graph[u].append((v, w))
 
-INF = float('inf')
+INF = sys.maxsize
 dist = [INF] * (V + 1)
 dist[K] = 0
-
 hq = [(0, K)]
-
 while hq:
     w, node = heapq.heappop(hq)
-    
     if dist[node] < w:
         continue
-        
     for nxt_node, edge_w in graph[node]:
         cost = w + edge_w
         if cost < dist[nxt_node]:
